@@ -685,6 +685,10 @@
         formatter = _ref1[_i];
         args = formatter.split(/\s+/);
         id = args.shift();
+        if ((_ref1 = this.view.formatters[id]) != null ? _ref1.disclose : void 0) {
+          value = (_ref2 = this.view.formatters[id]).disclose.apply(_ref2, [this.model.toJSON(), this.keypath, value].concat(__slice.call(args)));
+          continue;
+        }
         if ((_ref2 = this.view.formatters[id]) != null ? _ref2.publish : void 0) {
           value = (_ref3 = this.view.formatters[id]).publish.apply(_ref3, [value].concat(__slice.call(args)));
         }
